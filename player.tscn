@@ -1,10 +1,9 @@
-[gd_scene load_steps=68 format=2]
+[gd_scene load_steps=67 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
 [ext_resource path="res://BlueWizard/2BlueWizardWalk/Chara_BlueWalk00011.png" type="Texture" id=2]
 [ext_resource path="res://BlueWizard/2BlueWizardJump/CharaWizardJump_00000.png" type="Texture" id=3]
 [ext_resource path="res://BlueWizard/2BlueWizardJump/CharaWizardJump_00004.png" type="Texture" id=4]
-[ext_resource path="res://BlueWizard/2BlueWizardJump/CharaWizardJump_00003.png" type="Texture" id=5]
 [ext_resource path="res://BlueWizard/2BlueWizardWalk/Chara_BlueWalk00006.png" type="Texture" id=6]
 [ext_resource path="res://BlueWizard/2BlueWizardWalk/Chara_BlueWalk00003.png" type="Texture" id=7]
 [ext_resource path="res://BlueWizard/2BlueWizardWalk/Chara_BlueWalk00015.png" type="Texture" id=8]
@@ -82,15 +81,20 @@ animations = [ {
 "name": "walk",
 "speed": 25.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 14 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 64 ) ],
-"loop": true,
-"name": "jump",
-"speed": 25.0
-}, {
 "frames": [ ExtResource( 53 ), ExtResource( 58 ), ExtResource( 33 ), ExtResource( 59 ), ExtResource( 56 ), ExtResource( 37 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 47 ), ExtResource( 44 ), ExtResource( 52 ), ExtResource( 36 ), ExtResource( 63 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 38 ) ],
 "loop": true,
 "name": "dash",
 "speed": 25.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 4 ), ExtResource( 14 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 64 ) ],
+"loop": true,
+"name": "fall",
+"speed": 5.0
 } ]
 
 [node name="player" type="KinematicBody2D"]
@@ -100,12 +104,10 @@ script = ExtResource( 1 )
 position = Vector2( 0, -1.41422 )
 shape = SubResource( 1 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="Sprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -2.82843 )
 frames = SubResource( 2 )
-animation = "idle"
-frame = 9
+animation = "fall"
+frame = 2
 speed_scale = 3.0
 playing = true
-
-[node name="setting" type="Node" parent="."]
