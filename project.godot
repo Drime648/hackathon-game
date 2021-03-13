@@ -26,8 +26,4 @@ RestHandler="*res://addons/github-integration/scripts/RestHandler.gd"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "github-integration" )
-
-[rendering]
-
-environment/default_environment="res://default_env.tres"
+enabled=PoolStringArray(  )
